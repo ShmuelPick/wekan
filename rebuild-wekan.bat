@@ -22,9 +22,9 @@ call npm -g install npm
 call npm -g install node-gyp
 call npm -g install fibers@2.0.0
 cd C:\repos
-git clone https://github.com/wekan/wekan.git
+git clone https://github.com/sabasabo/wekan
 cd wekan
-git checkout edge
+git checkout master
 echo "Building Wekan."
 REM del /S /F /Q packages
 md packages
