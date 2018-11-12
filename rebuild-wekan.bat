@@ -4,9 +4,6 @@ REM IN PROGRESS: Build on Windows.
 REM https://github.com/wekan/wekan/wiki/Install-Wekan-from-source-on-Windows
 REM Please add fix PRs, like config of MongoDB etc.
 
-md C:\repos
-cd C:\repos
-
 REM Install chocolatey
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
@@ -21,7 +18,7 @@ call meteor npm config -g set msvs_version 2015
 call npm -g install npm
 call npm -g install node-gyp
 call npm -g install fibers@2.0.0
-cd C:\repos
+cd C:\dev\work
 git clone https://github.com/sabasabo/wekan
 cd wekan
 git checkout master
@@ -33,7 +30,7 @@ git clone --depth 1 -b master https://github.com/wekan/flow-router.git kadira-fl
 git clone --depth 1 -b master https://github.com/meteor-useraccounts/core.git meteor-useraccounts-core
 git clone --depth 1 -b master https://github.com/wekan/meteor-accounts-cas.git
 git clone --depth 1 -b master https://github.com/wekan/wekan-ldap.git
-REM sed -i 's/api\.versionsFrom/\/\/api.versionsFrom/' ~/repos/wekan/packages/meteor-useraccounts-core/package.js
+REM sed -i 's/api\.versionsFrom/\/\/api.versionsFrom/' ~/work/wekan/packages/meteor-useraccounts-core/package.js
 cd ..
 REM del /S /F /Q node_modules
 call meteor npm install
@@ -42,7 +39,7 @@ call meteor build .build --directory
 copy fix-download-unicode\cfs_access-point.txt .build\bundle\programs\server\packages\cfs_access-point.js
 cd .build\bundle\programs\server
 call meteor npm install
-REM cd C:\repos\wekan\.meteor\local\build\programs\server
+REM cd C:\dev\work\wekan\.meteor\local\build\programs\server
 REM del node_modules
-cd C:\repos\wekan
+cd C:\dev\work\wekan
 call start-wekan.bat
