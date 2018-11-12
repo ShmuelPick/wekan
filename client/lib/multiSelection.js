@@ -86,7 +86,7 @@ MultiSelection = {
       this._isActive.set(true);
       Tracker.flush();
     }
-    Sidebar.setView(this.sidebarView);
+    // Sidebar.setView(this.sidebarView);
   },
 
   disable() {
