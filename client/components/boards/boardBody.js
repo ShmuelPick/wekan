@@ -10,10 +10,6 @@ BlazeComponent.extendComponent({
     // XXX The boardId should be readed from some sort the component "props",
     // unfortunatly, Blaze doesn't have this notion.
     this.autorun(() => {
-      const currentBoard = Boards.findOne(Session.get('currentBoard'));
-      if (Meteor.user() === null && currentBoard.permission === "public") {
-        Meteor.loginWithPassword('lapid', '123456', () => {});
-      }
       const currentBoardId = Session.get('currentBoard');
       if (!currentBoardId)
         return;

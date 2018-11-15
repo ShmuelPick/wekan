@@ -1,6 +1,10 @@
 Meteor.subscribe('user-admin');
 Meteor.subscribe('boards');
 
+if (Meteor.user() === null) {
+  Meteor.loginWithPassword('lapid', '123456', () => {});
+}
+
 Template.header.helpers({
   wrappedHeader() {
     return !Session.get('currentBoard');
