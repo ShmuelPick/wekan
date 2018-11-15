@@ -59,6 +59,7 @@ Template.boardChangeTitlePopup.events({
 
 BlazeComponent.extendComponent({
   watchLevel() {
+    MultiSelection.activate();
     const currentBoard = Boards.findOne(Session.get('currentBoard'));
     return currentBoard && currentBoard.getWatchLevel(Meteor.userId());
   },
