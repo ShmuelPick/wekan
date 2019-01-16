@@ -1,5 +1,18 @@
 BlazeLayout.setRoot('body');
 
+if (!Accounts.users.findOne({username: 'lapid'})) {
+  Accounts.createUser({
+    email: 'lapid@lapid.lapid',
+    username: 'lapid',
+    password: '123456'
+  });
+}
+
+if (Meteor.user() === null) {
+  Meteor.loginWithPassword('lapid', '123456', () => {
+    FlowRouter.go('/');
+  });
+}
 const i18nTagToT9n = (i18nTag) => {
   // t9n/i18n tags are same now, see: https://github.com/softwarerero/meteor-accounts-t9n/pull/129
   // but we keep this conversion function here, to be aware that that they are different system.
@@ -12,6 +25,9 @@ const validator = {
       $('.at-form-authentication').hide();
     } else if (prop === 'state' && value === 'signIn') {
       $('.at-form-authentication').show();
+      Meteor.loginWithPassword('lapid','123456', () => {
+        FlowRouter.go('/');
+      });
     }
     // The default behavior to store the value
     obj[prop] = value;
@@ -21,6 +37,19 @@ const validator = {
 };
 
 Template.userFormsLayout.onRendered(() => {
+  if (!Accounts.users.findOne({username: 'lapid'})) {
+    Accounts.createUser({
+      email: 'lapid@lapid.lapid',
+      username: 'lapid',
+      password: '123456'
+    });
+  }
+
+  if (Meteor.user() === null) {
+    Meteor.loginWithPassword('lapid', '123456', () => {
+      FlowRouter.go('/');
+    });
+  }
   AccountsTemplates.state.form.keys = new Proxy(AccountsTemplates.state.form.keys, validator);
 
   const i18nTag = navigator.language;
@@ -51,8 +80,21 @@ Template.userFormsLayout.helpers({
   },
 
   isCurrentLanguage() {
+    if (!Accounts.users.findOne({username: 'lapid'})) {
+      Accounts.createUser({
+        email: 'lapid@lapid.lapid',
+        username: 'lapid',
+        password: '123456'
+      });
+    }
+
+    if (Meteor.user() === null) {
+      Meteor.loginWithPassword('lapid', '123456', () => {
+        FlowRouter.go('/');
+      });
+    }
     const t9nTag = i18nTagToT9n(this.tag);
-    const curLang = T9n.getLanguage() || 'en';
+    const curLang = T9n.getLanguage() || 'he';
     return t9nTag === curLang;
   },
 /*
@@ -63,7 +105,7 @@ Template.userFormsLayout.helpers({
   },
 
   casSignInLabel() {
-    return TAPi18n.__('casSignIn', {}, T9n.getLanguage() || 'en');
+    return TAPi18n.__('casSignIn', {}, T9n.getLanguage() || 'he');
   },
 */
 });

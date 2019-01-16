@@ -3,7 +3,6 @@
 #header
   color: white
   transition: background-color 0.4s
-  background: #2980B9
   z-index: 17
 
   #header-main-bar
@@ -35,6 +34,7 @@
       opacity: 0.6
       transition: opacity 0.15s
       float: right
+      display: none
 
       &:hover
         opacity: 0.9
@@ -43,6 +43,8 @@
       display: block
       margin-top: 3px
       width: auto
+      .js-toggle-board-view
+        display: none
 
       // XXX Use a flexbox instead of floats?
       &.left
@@ -50,6 +52,18 @@
 
       &.right
         float: right
+
+    .js-change-visibility
+      display: none
+
+    .js-watch-board
+      display: none
+
+    .js-open-rules-view
+      display: none
+
+    .js-open-filter-view
+      display: none
 
     .board-header-btn
       border-radius: 3px
@@ -139,6 +153,7 @@
 
   #header-user-bar
     margin: 2px 0
+    display: none
 
     .header-user-bar-avatar
       float: left

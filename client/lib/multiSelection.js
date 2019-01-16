@@ -148,7 +148,7 @@ MultiSelection = {
 
   isSelected(cardId) {
     return this._selectedCards.get().indexOf(cardId) > -1;
-  },
+  }
 };
 
 Blaze.registerHelper('MultiSelection', MultiSelection);

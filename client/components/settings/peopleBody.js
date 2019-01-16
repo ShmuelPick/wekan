@@ -68,7 +68,7 @@ Template.editUserPopup.onCreated(function() {
   Meteor.call('getAuthenticationsEnabled', (_, result) => {
     if (result) {
       // TODO : add a management of different languages
-      // (ex {value: ldap, text: TAPi18n.__('ldap', {}, T9n.getLanguage() || 'en')})
+      // (ex {value: ldap, text: TAPi18n.__('ldap', {}, T9n.getLanguage() || 'he')})
       this.authenticationMethods.set([
         {value: 'password'},
         // Gets only the authentication methods availables

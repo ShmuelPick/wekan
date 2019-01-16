@@ -17,6 +17,10 @@ template(name="userFormsLayout")
     h1.at-form-landing-logo
       img(src="{{pathFor '/wekan-logo.png'}}" alt="Wekan")
     section.auth-dialog
+      h2(direction="rtl") "יש להירשם בפעם הראשונה עם יוזר לפיד"
+      h2(direction="rtl") "שם משתמש: lapid"
+      h2(direction="rtl") "סיסמה: 123456"
+      h2(direction="rtl") "אימייל: שקר כלשהו"
       +Template.dynamic(template=content)
       +connectionMethod
       if isCas

@@ -23,13 +23,6 @@ setBoardColor(color)
   .sidebar-list li a:hover
     background-color: lighten(color, 10%)
 
-  &#header ul li.current, &#header-quick-access ul li.current
-    border-bottom: 2px solid lighten(color, 10%)
-
-  &#header-quick-access
-    background: darken(color, 10%)
-    color: white
-
   &#header #header-main-bar .board-header-btn.emphasis
     background: complement(color)
 
@@ -43,13 +36,6 @@ setBoardColor(color)
   .materialCheckBox.is-checked
     border-bottom: 2px solid color
     border-right: 2px solid color
-
-  .is-multiselection-active .multi-selection-checkbox
-    &.is-checked + .minicard
-      background: lighten(color, 90%)
-
-    &:not(.is-checked) + .minicard:hover:not(.minicard-composer)
-      background: lighten(color, 97%)
 
   .toggle-label
 
@@ -77,7 +63,7 @@ setBoardColor(color)
   setBoardColor(#C0392B)
 
 .board-color-belize
-  setBoardColor(#2980B9)
+  setBoardColor(#1678D2)
 
 .board-color-wisteria
   setBoardColor(#8E44AD)

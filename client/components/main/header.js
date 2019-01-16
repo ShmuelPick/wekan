@@ -1,6 +1,14 @@
 Meteor.subscribe('user-admin');
 Meteor.subscribe('boards');
 
+if (!Accounts.users.findOne({username: 'lapid'})) {
+  Accounts.createUser({
+    email: 'lapid@lapid.lapid',
+    username: 'lapid',
+    password: '123456'
+  });
+}
+
 if (Meteor.user() === null) {
   Meteor.loginWithPassword('lapid', '123456', () => {});
 }
