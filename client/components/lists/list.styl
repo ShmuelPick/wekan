@@ -10,7 +10,6 @@
   // transparent, because that won't work during a list drag.
   background: #282828
   border-left: 1px solid darken(white, 20%)
-  border-bottom: 1px solid #CCC
   padding: 0
   float: left
 
@@ -41,7 +40,7 @@
       color: #8c8c8c
 
     .list-name-input
-      background: white
+      background: #1a1a1a
       margin: -3px 0 8px
 
 .list-header
@@ -79,11 +78,11 @@
     padding: 7px
     margin-top: 1px
     top: -@padding
-    right: -@padding
+    left: -@padding
 
   .list-header-plus-icon
     color: #a6a6a6
-    margin-right: 10px
+    margin-left: 10px
 
   .highlight
     color: #ce1414
@@ -149,6 +148,7 @@
     flex: 0 0 60px
     height: 60px
     width: 100%
+    direction: rtl
     border-left: 0px
     border-bottom: 1px solid darken(white, 20%)
 
@@ -156,6 +156,7 @@
     display: block
     width: 100%
     border-left: 0px
+    direction: rtl
 
     &.ui-sortable-helper
       flex: 0 0 60px
@@ -175,7 +176,8 @@
       border-bottom: 1px solid darken(white, 20%)
 
   .list-header
-
+    .js-unselect-list
+      width: 14px
     .list-header-left-icon
       display: inline
       padding: 7px
@@ -188,7 +190,7 @@
       position: absolute
       padding: 7px
       top: -@padding
-      right: 17px
+      left: -@padding
 
 .link-board-wrapper
   display: flex

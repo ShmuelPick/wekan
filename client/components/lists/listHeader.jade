@@ -5,7 +5,7 @@ template(name="listHeader")
     else
       if isMiniScreen
         if currentList
-          a.list-header-left-icon.fa.fa-angle-left.js-unselect-list
+          a.list-header-right-icon.fa.fa-angle-right.js-unselect-list
       h2.list-header-name(
         class="{{#if currentUser.isBoardMember}}js-open-inlined-form is-editable{{/if}}")
         = title
@@ -27,7 +27,7 @@ template(name="listHeader")
                 a.js-add-card.fa.fa-plus.list-header-plus-icon
               a.fa.fa-navicon.js-open-list-menu
         else
-          a.list-header-menu-icon.fa.fa-angle-right.js-select-list
+          a.list-header-menu-icon.fa.fa-angle-left.js-select-list
       else if currentUser.isBoardMember
         if isWatching
           i.list-header-watch-icon.fa.fa-eye

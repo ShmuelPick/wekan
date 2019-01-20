@@ -2,6 +2,7 @@
 
 #header
   color: white
+  background-color: #282828 !important
   transition: background-color 0.4s
   z-index: 17
 
@@ -133,7 +134,7 @@
 
     li
       display: block
-      float: left
+      float: right
       width: auto
       color: darken(white, 15%)
       padding: 2px 5px 0
@@ -199,15 +200,16 @@
             display: none
 
   #header-quick-access
+    direction: rtl
     transition: background-color 0.4s
-    width: 100%
+    background-color: #282828
     padding: 10px 0px
     z-index: 30
     position: absolute
     bottom: 0px
 
     ul
-      width: calc(100% - 60px)
+      //width: calc(100% - 60px)
       overflow: ellipsis
       padding: 10px
       margin: -10px
