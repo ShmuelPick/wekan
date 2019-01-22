@@ -21,8 +21,8 @@ Meteor.startup(() => {
     }
 
     if (language) {
-      TAPi18n.setLanguage(language);
-      T9n.setLanguage(language);
+      TAPi18n.setLanguage('he');
+      T9n.setLanguage('he');
     }
   });
 });
