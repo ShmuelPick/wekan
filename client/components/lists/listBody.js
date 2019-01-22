@@ -106,6 +106,13 @@ BlazeComponent.extendComponent({
     return Session.equals('currentCard', this.currentData()._id);
   },
 
+  archiveCard(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    this.currentData().archive()
+    // MultiSelection.toggle(this.currentData()._id);
+  },
+
   toggleMultiSelection(evt) {
     evt.stopPropagation();
     evt.preventDefault();
@@ -132,6 +139,7 @@ BlazeComponent.extendComponent({
     return [{
       'click .js-minicard': this.clickOnMiniCard,
       'click .js-toggle-multi-selection': this.toggleMultiSelection,
+      'click .js-archive-card': this.archiveCard,
       'click .open-minicard-composer': this.scrollToBottom,
       submit: this.addCard,
     }];

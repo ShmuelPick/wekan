@@ -56,6 +56,8 @@ MultiSelection = {
 
   _isActive: new ReactiveVar(false),
 
+  _isFirstTime: new ReactiveVar(true),
+
   startRangeCardId: null,
 
   reset() {
@@ -72,6 +74,10 @@ MultiSelection = {
     return this._isActive.get();
   },
 
+  isDisabled() {
+    return !this._isActive.get();
+  },
+
   count() {
     return Cards.find(this.getMongoSelector()).count();
   },
@@ -80,6 +86,13 @@ MultiSelection = {
     return this.count() === 0;
   },
 
+  isFirstTime() {
+    return this._isFirstTime.get();
+  },
+
+  setNotFirstTime() {
+    this._isFirstTime.set(false);
+  },
   activate() {
     if (!this.isActive()) {
       EscapeActions.executeUpTo('detailsPane');

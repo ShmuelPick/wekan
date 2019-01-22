@@ -18,6 +18,7 @@
 
   .sidebar-content
     padding: 12px
+    background-color: #282828
     margin-bottom: 1.6em
     position: absolute
     top: 0
@@ -111,7 +112,6 @@
 .board-sidebar
   width: 248px
   right: -@width
-  display: none
   transition: top .1s, right .1s, width .1s
 
   &.is-open
@@ -124,7 +124,7 @@
   margin-right: -4px
 
 .sidebar-tongue
-  display: block
+  display: none
   width: 30px
   height: @width
   left: -@width
@@ -203,7 +203,7 @@
     height: @width
     left: -@width - 7px
     top: 5px
-    display: block
+    display: none
     border-radius: 50%
     border: 1px solid darken(white, 30%)
     box-shadow: 0 1px 6px rgba(0, 0, 0, .3)

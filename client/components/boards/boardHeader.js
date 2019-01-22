@@ -59,7 +59,9 @@ Template.boardChangeTitlePopup.events({
 
 BlazeComponent.extendComponent({
   watchLevel() {
-    // MultiSelection.activate();
+    if (MultiSelection.isFirstTime()) {
+      MultiSelection.activate();
+    }
     const currentBoard = Boards.findOne(Session.get('currentBoard'));
     return currentBoard && currentBoard.getWatchLevel(Meteor.userId());
   },
@@ -84,6 +86,10 @@ BlazeComponent.extendComponent({
       },
       'click .js-open-board-menu': Popup.open('boardMenu'),
       'click .js-change-visibility': Popup.open('boardChangeVisibility'),
+      'click .js-open-archives'() {
+        Sidebar.setView('archives');
+        Popup.close();
+      },
       'click .js-watch-board': Popup.open('boardChangeWatch'),
       'click .js-open-archived-board'() {
         Modal.open('archivedBoards');
@@ -112,8 +118,10 @@ BlazeComponent.extendComponent({
       'click .js-open-rules-view'() {
         Modal.openWide('rulesMain');
       },
-      'click .js-multiselection-activate'() {
+      'click .js-multiselection-activate'(evt) {
+        evt.stopPropagation();
         const currentCard = Session.get('currentCard');
+        MultiSelection.setNotFirstTime();
         MultiSelection.activate();
         if (currentCard) {
           MultiSelection.add(currentCard);
@@ -121,6 +129,7 @@ BlazeComponent.extendComponent({
       },
       'click .js-multiselection-reset'(evt) {
         evt.stopPropagation();
+        MultiSelection.setNotFirstTime();
         MultiSelection.disable();
       },
       'click .js-log-in'() {

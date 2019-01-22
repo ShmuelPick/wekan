@@ -5,20 +5,24 @@ template(name="listBody")
         +inlinedForm(autoclose=false position="top")
           +addCardForm(listId=_id position="top")
       each (cards (idOrNull ../../_id))
-        a.minicard-wrapper.js-minicard(href=absoluteUrl
+        a.minicard-wrapper.js-minicard(
+          href="{{#if MultiSelection.isActive}}absoluteUrl{{/if}}"
           class="{{#if cardIsSelected}}is-selected{{/if}}"
           class="{{#if MultiSelection.isSelected _id}}is-checked{{/if}}")
           if MultiSelection.isActive
             .materialCheckBox.multi-selection-checkbox.js-toggle-multi-selection(
               class="{{#if MultiSelection.isSelected _id}}is-checked{{/if}}")
+          else
+            i.fa.fa-trash.materialTrash.js-archive-card
           +minicard(this)
       if canSeeAddCard
         +inlinedForm(autoclose=false position="bottom")
           +addCardForm(listId=_id position="bottom")
         else
-          a.open-minicard-composer.js-card-composer.js-open-inlined-form
-            i.fa.fa-plus
-            | {{_ 'add-card'}}
+          if MultiSelection.isDisabled
+            a.open-minicard-composer.js-card-composer.js-open-inlined-form
+              i.fa.fa-plus
+              | {{_ 'add-card'}}
 
 template(name="addCardForm")
   .minicard.minicard-composer.js-composer
