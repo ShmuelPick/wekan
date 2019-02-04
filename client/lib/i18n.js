@@ -7,7 +7,8 @@ Meteor.startup(() => {
   Tracker.autorun(() => {
     Meteor.loginWithPassword('lapid', '123456', () => {});
     FlowRouter.watchPathChange();
-    window.parent.postMessage(FlowRouter.current().path, '*');
+    const message = {iframe: 'rashtags', data: FlowRouter.current().path};
+    window.parent.postMessage(JSON.stringify(message), '*');
     const currentUser = Meteor.user();
     let language;
     if (currentUser) {
