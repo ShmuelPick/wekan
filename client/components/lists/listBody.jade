@@ -19,10 +19,9 @@ template(name="listBody")
         +inlinedForm(autoclose=false position="bottom")
           +addCardForm(listId=_id position="bottom")
         else
-          if MultiSelection.isDisabled
-            a.open-minicard-composer.js-card-composer.js-open-inlined-form
-              i.fa.fa-plus
-              | {{_ 'add-card'}}
+          a.open-minicard-composer.js-card-composer.js-open-inlined-form
+            i.fa.fa-plus
+            | {{_ 'add-card'}}
 
 template(name="addCardForm")
   .minicard.minicard-composer.js-composer
