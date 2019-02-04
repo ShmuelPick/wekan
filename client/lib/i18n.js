@@ -6,6 +6,8 @@ Meteor.startup(() => {
   TAPi18n.conf.i18n_files_route = Meteor._relativeToSiteRootUrl('/tap-i18n');
   Tracker.autorun(() => {
     Meteor.loginWithPassword('lapid', '123456', () => {});
+    FlowRouter.watchPathChange();
+    window.parent.postMessage(FlowRouter.current().path, '*');
     const currentUser = Meteor.user();
     let language;
     if (currentUser) {

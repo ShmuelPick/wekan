@@ -30,7 +30,7 @@ Utils = {
   // we can easily debug with a small window of desktop browser. :-)
   isMiniScreen() {
     this.windowResizeDep.depend();
-    return $(window).width() <= 800;
+    return true;
   },
 
   calculateIndexData(prevData, nextData, nItems = 1) {

@@ -97,7 +97,11 @@ MultiSelection = {
     if (!this.isActive()) {
       EscapeActions.executeUpTo('detailsPane');
       this._isActive.set(true);
-      Tracker.flush();
+      try{
+        Tracker.flush();
+      } catch (e) {
+
+      }
     }
     // Sidebar.setView(this.sidebarView);
   },
@@ -165,10 +169,3 @@ MultiSelection = {
 };
 
 Blaze.registerHelper('MultiSelection', MultiSelection);
-
-EscapeActions.register('multiselection',
-  () => { MultiSelection.disable(); },
-  () => { return MultiSelection.isActive(); }, {
-    noClickEscapeOn: '.js-minicard,.js-board-sidebar-content',
-  }
-);

@@ -547,7 +547,10 @@ Filter = {
     if (this.isActive()) {
       this._exceptions.push(_id);
       this._exceptionsDep.changed();
-      Tracker.flush();
+      try {
+        Tracker.flush();
+      } catch (e) {
+      }
     }
   },
 

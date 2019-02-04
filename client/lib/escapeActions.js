@@ -16,7 +16,6 @@ EscapeActions = {
     'modalWindow',
     'inlinedForm',
     'detailsPane',
-    'multiselection',
     'sidebarView',
   ],
 

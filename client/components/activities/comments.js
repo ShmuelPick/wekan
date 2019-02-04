@@ -35,7 +35,10 @@ BlazeComponent.extendComponent({
             cardId,
           });
           resetCommentInput(input);
-          Tracker.flush();
+          try {
+            Tracker.flush();
+          } catch (e) {
+          }
           autosize.update(input);
         }
         evt.preventDefault();
