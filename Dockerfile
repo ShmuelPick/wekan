@@ -253,6 +253,7 @@ RUN \
     gosu wekan:wekan npm install && \
     #gosu wekan:wekan npm install bcrypt && \
     mv /home/wekan/app_build/bundle /build && \
+	cp /home/wekan/app/use_docker_secrets.sh /build/use_docker_secrets.sh && \
     \
     # Put back the original tar
     mv $(which tar)~ $(which tar) && \
@@ -270,4 +271,4 @@ ENV PORT=8080
 EXPOSE $PORT
 USER wekan
 
-CMD ["node", "/build/main.js"]
+CMD ["/build/use_docker_secrets.sh"]
