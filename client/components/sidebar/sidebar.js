@@ -8,6 +8,7 @@ const viewTitles = {
   multiselection: 'multi-selection',
   customFields: 'custom-fields',
   archives: 'archives',
+  archiveBoard: 'archive-board',
 };
 
 BlazeComponent.extendComponent({

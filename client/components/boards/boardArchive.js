@@ -27,7 +27,7 @@ BlazeComponent.extendComponent({
         }
         const board = this.currentData();
         board.restore();
-        Utils.goBoardId(board._id);
+        // Utils.goBoardId(board._id);
       },
       'click .js-delete-board': Popup.afterConfirm('boardDelete', function() {
         Popup.close();

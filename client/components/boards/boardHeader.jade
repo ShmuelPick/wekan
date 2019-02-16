@@ -110,6 +110,9 @@ template(name="boardHeaderBar")
           if MultiSelection.isDisabled
             a.board-header-btn-close.js-multiselection-activate(title="{{_ 'filter-clear'}}")
               i.fa.fa-times-thin
+      a.board-header-btn.js-archive-board(
+        title="{{_ 'archive-board'}}")
+        i.fa.fa-trash
 
       a.board-header-btn.js-open-archives(
         title="{{_ 'archived-items'}}")
