@@ -5,7 +5,8 @@ BlazeComponent.extendComponent({
 
   results() {
     const currentBoard = Boards.findOne(Session.get('currentBoard'));
-    return currentBoard.searchCards(this.term.get());
+    // return currentBoard.searchCards(this.term.get());
+    return currentBoard.lists();
   },
 
   events() {
