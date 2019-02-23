@@ -83,7 +83,8 @@ template(name="searchCardPopup")
           option(value="{{_id}}") {{title}}
   form.js-search-term-form
     input(type="text" name="searchTerm" placeholder="{{_ 'search-example'}}" autofocus)
-    .swimlane.js-lists.js-swimlane
+  .list-body.js-perfect-scrollbar.search-card-results
+    .minicards.clearfix.js-minicards
       each results
         a.minicard-wrapper.js-minicard
           +minicard(this)
