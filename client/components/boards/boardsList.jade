@@ -9,9 +9,6 @@ template(name="boardList")
             .board-list-item
               span.details
                 span.board-list-item-name= title
-                i.fa.js-star-board(
-                  class="fa-star{{#if isStarred}} is-star-active{{else}}-o{{/if}}"
-                  title="{{_ 'star-board-title'}}")
                 p.board-list-item-desc {{_ 'just-invited'}}
                 button.js-accept-invite.primary {{_ 'accept'}}
                 button.js-decline-invite {{_ 'decline'}}
@@ -19,9 +16,6 @@ template(name="boardList")
             a.js-open-board.board-list-item(href="{{pathFor 'board' id=_id slug=slug}}")
               span.details
                 span.board-list-item-name= title
-                i.fa.js-star-board(
-                  class="fa-star{{#if isStarred}} is-star-active{{else}}-o{{/if}}"
-                  title="{{_ 'star-board-title'}}")
 
                 if hasSpentTimeCards
                   i.fa.js-has-spenttime-cards(
