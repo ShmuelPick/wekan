@@ -134,6 +134,7 @@ ENV BUILD_DEPS="apt-utils bsdtar gnupg gosu wget curl bzip2 build-essential pyth
 
 # Copy the app to the image
 COPY ${SRC_PATH} /home/wekan/app
+RUN /bin/bash -c 'ls -la; chmod +x /home/wekan/app/use_docker_secrets.sh; ls -la'
 
 RUN \
     set -o xtrace && \
@@ -271,5 +272,4 @@ ENV PORT=8080
 EXPOSE $PORT
 USER wekan
 
-RUN /bin/bash -c 'ls -la; chmod +x /build/use_docker_secrets.sh; ls -la'
 CMD ["/build/use_docker_secrets.sh"]
