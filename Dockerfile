@@ -270,6 +270,6 @@ RUN \
 
 ENV PORT=8080
 EXPOSE $PORT
-USER wekan
+#USER wekan
 
 CMD ["/build/use_docker_secrets.sh"]
