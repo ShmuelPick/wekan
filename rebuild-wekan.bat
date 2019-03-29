@@ -19,7 +19,7 @@ call npm -g install npm
 call npm -g install node-gyp
 call npm -g install fibers@2.0.0
 cd C:\dev\work
-git clone https://github.com/sabasabo/wekan
+git clone https://github.com/ShmuelPick/wekan
 cd wekan
 git checkout master
 echo "Building Wekan."
