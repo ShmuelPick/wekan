@@ -18,7 +18,7 @@ call meteor npm config -g set msvs_version 2015
 call npm -g install npm
 call npm -g install node-gyp
 call npm -g install fibers@2.0.0
-cd C:\dev\work
+cd d:\
 git clone https://github.com/ShmuelPick/wekan
 cd wekan
 git checkout master
@@ -41,5 +41,5 @@ cd .build\bundle\programs\server
 call meteor npm install
 REM cd C:\dev\work\wekan\.meteor\local\build\programs\server
 REM del node_modules
-cd C:\dev\work\wekan
+cd d:\wekan
 call start-wekan.bat
